@@ -38,7 +38,7 @@ const initialTasks = [
   {
     id: 4,
     taskname: 'Live demo',
-    desc: 'Create a live demo for this project.',
+    desc: 'Deploy this project to Github Pages.',
     estimate: moment.duration(20, 'minutes'),
     status: 'Completed',
   },
