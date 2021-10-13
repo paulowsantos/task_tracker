@@ -1,7 +1,7 @@
 {
   "name": "task_tracker",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "http://paulowsantos.github.io/task_tracker",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
