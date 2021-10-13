@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useContext, useEffect } from 'react';
+import React, { useMemo, useContext } from 'react';
 import { BsPlusCircle } from 'react-icons/bs';
 import moment from 'moment';
 
@@ -18,7 +18,7 @@ import {
 
 const MainPage: React.FC = () => {
   const { tasksList, addTask } = useContext(TasksContext);
-  const statusList = ['Planned', 'In Progress', 'Completed'];
+  const statusList = useMemo(() => ['Planned', 'In Progress', 'Completed'], []);
 
   const totalPlanDisplay = useMemo(() => {
     const filteredArray = tasksList.filter(

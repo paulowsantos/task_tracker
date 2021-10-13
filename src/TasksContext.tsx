@@ -44,6 +44,7 @@ const initialTasks = [
   },
 ];
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const TasksProvider = ({ children }: TasksProviderProps) => {
   const [tasksList, setTasksList] = useState<TaskProps[]>([]);
 
