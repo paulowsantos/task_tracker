@@ -3,16 +3,19 @@ import { BrowserRouter } from 'react-router-dom';
 
 import GlobalStyles from './styles/global';
 import { TasksProvider } from './TasksContext';
+import { PopupProvider } from './PopupContext';
 import Routes from './routes';
 
 const App: React.FC = () => {
   return (
-    <TasksProvider>
-      <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
-      <GlobalStyles />
-    </TasksProvider>
+    <PopupProvider>
+      <TasksProvider>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+        <GlobalStyles />
+      </TasksProvider>
+    </PopupProvider>
   );
 };
 

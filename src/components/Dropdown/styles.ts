@@ -7,10 +7,12 @@ interface ContainerProps {
 export const Container = styled.button<ContainerProps>`
   border: 0;
   height: 0;
+  ${props => (props.listOpen ? '80px' : '0px')};
   ul {
     width: 100%;
-    height: 100px;
-    background: none;
+    height: ${props => (props.listOpen ? '80px' : '0px')};
+    box-shadow: inset 0 0 0 3rem rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
     list-style-type: none;
     transform: scale(0);
     li {
@@ -19,10 +21,12 @@ export const Container = styled.button<ContainerProps>`
       transform: scale(0);
       button {
         display: block;
-        text-align: center;
+        text-align: left;
         width: 100%;
+        border: 1px solid #000;
         border-radius: 5px;
-        font-size: 15px;
+        font-size: 14px;
+        padding: 0px 5px;
         background: ${lighten(0.2, '#445e69')};
         color: #fff;
         transition: 250ms ease all;
@@ -67,7 +71,7 @@ export const Header = styled.button`
   border: 1px solid #000;
   border-radius: 5px;
   font-size: 16px;
-  padding: 5px 15px;
+  padding: 1px 10px;
   background: #fff;
   outline: none;
 

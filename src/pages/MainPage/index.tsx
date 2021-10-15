@@ -3,7 +3,9 @@ import { BsPlusCircle } from 'react-icons/bs';
 import moment from 'moment';
 
 import { TasksContext } from '../../TasksContext';
+import { PopupContext } from '../../PopupContext';
 import Task from '../../components/Task';
+import Popup from '../../components/Popup';
 import logoImg from '../../assets/logo.png';
 
 import {
@@ -18,6 +20,7 @@ import {
 
 const MainPage: React.FC = () => {
   const { tasksList, addTask } = useContext(TasksContext);
+  const { popupstats } = useContext(PopupContext);
   const statusList = useMemo(() => ['Planned', 'In Progress', 'Completed'], []);
 
   const totalPlanDisplay = useMemo(() => {
@@ -85,7 +88,7 @@ const MainPage: React.FC = () => {
           <Title>Task Tracker</Title>
         </div>
         <button type="button" onClick={handleAddTask}>
-          <BsPlusCircle size={30} />
+          <BsPlusCircle size={25} />
           Add Task
         </button>
       </Header>
@@ -133,6 +136,7 @@ const MainPage: React.FC = () => {
           </ListContainer>
         </State>
       </States>
+      {popupstats && <Popup />}
     </Container>
   );
 };

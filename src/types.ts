@@ -21,3 +21,15 @@ export interface TasksContextData {
   addTask: (task: TaskInput) => Promise<void>;
   delTask: (taskId: number) => Promise<void>;
 }
+
+export interface PopupProviderProps {
+  children: ReactNode;
+}
+
+export interface PopupContextData {
+  id: number;
+  name: string;
+  popupstats: boolean;
+  updatePopup: (taskId: number, nameId: string) => void;
+  setPopupStatus: (stats: boolean) => void;
+}

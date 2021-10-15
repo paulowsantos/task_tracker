@@ -5,7 +5,9 @@ import { TimePicker } from 'antd';
 import moment from 'moment';
 
 import { TasksContext } from '../../TasksContext';
+import { PopupContext } from '../../PopupContext';
 import Dropdown from '../Dropdown';
+
 import {
   TaskContainer,
   TaskHeader,
@@ -13,9 +15,9 @@ import {
   OpenButton,
   TaskBody,
   TimePickerContainer,
+  TimePickerFooter,
   ButtonsContainer,
-  DeleteButton,
-  SaveButton,
+  BottomButton,
 } from './styles';
 
 import { TaskProps } from '../../types';
@@ -26,7 +28,8 @@ interface ITaskProps {
 }
 
 const Task: React.FC<ITaskProps> = ({ statusList, data }) => {
-  const { updateTask, delTask } = useContext(TasksContext);
+  const { updateTask } = useContext(TasksContext);
+  const { setPopupStatus, updatePopup } = useContext(PopupContext);
   const [isDetailsOpen, setDetailsState] = useState(false);
   const [selectedTime, setSelectedTime] = useState<moment.Duration>(
     data.estimate,
@@ -38,10 +41,6 @@ const Task: React.FC<ITaskProps> = ({ statusList, data }) => {
   const [taskEstDisplay, setTaskEstDisplay] = useState<string>(
     moment.utc(moment.duration(data.estimate).asMilliseconds()).format('HH:mm'),
   );
-
-  const handleDeleteTask = () => {
-    delTask(data.id);
-  };
 
   const handleSaveTask = async () => {
     setTaskNameDisplay(taskName);
@@ -60,9 +59,23 @@ const Task: React.FC<ITaskProps> = ({ statusList, data }) => {
     });
   };
 
+  const handleDeleteTask = () => {
+    updatePopup(Number(data.id), taskNameDisplay);
+    setPopupStatus(true);
+  };
+
   const handleStatusChange = useCallback((stats: string) => {
     setSelectedStatus(stats);
   }, []);
+
+  const teste = () => {
+    return (
+      <TimePickerFooter>
+        <span>Hr.</span>
+        <span>Min.</span>
+      </TimePickerFooter>
+    );
+  };
 
   return (
     <TaskContainer>
@@ -98,6 +111,7 @@ const Task: React.FC<ITaskProps> = ({ statusList, data }) => {
           <span>Estimate:</span>
           <TimePickerContainer isOpen={isDetailsOpen}>
             <TimePicker
+              inputReadOnly
               showNow={false}
               allowClear={false}
               value={moment.utc(moment.duration(selectedTime).asMilliseconds())}
@@ -107,6 +121,7 @@ const Task: React.FC<ITaskProps> = ({ statusList, data }) => {
                   moment.duration(moment(t).format('HH:mm'), 'minutes'),
                 );
               }}
+              renderExtraFooter={teste}
             />
           </TimePickerContainer>
           <span>Status:</span>
@@ -117,12 +132,16 @@ const Task: React.FC<ITaskProps> = ({ statusList, data }) => {
           />
         </div>
         <ButtonsContainer>
-          <DeleteButton type="button" onClick={handleDeleteTask}>
+          <BottomButton
+            saveDelete={false}
+            type="button"
+            onClick={handleDeleteTask}
+          >
             Delete Task
-          </DeleteButton>
-          <SaveButton type="button" onClick={handleSaveTask}>
+          </BottomButton>
+          <BottomButton saveDelete type="button" onClick={handleSaveTask}>
             Save Task
-          </SaveButton>
+          </BottomButton>
         </ButtonsContainer>
       </TaskBody>
     </TaskContainer>

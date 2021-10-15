@@ -16,7 +16,7 @@ export const TasksContext = createContext<TasksContextData>(
 const initialTasks = [
   {
     id: 1,
-    taskname: 'Implement Drag & Drop',
+    taskname: 'Drag & Drop',
     desc: 'Implement functionality that allows the user to change the status of a task by simply dragging and dropping it.',
     estimate: moment.duration(210, 'minutes'),
     status: 'Planned',
@@ -38,7 +38,7 @@ const initialTasks = [
   {
     id: 4,
     taskname: 'Live demo',
-    desc: 'Deploy this project to Github Pages.',
+    desc: 'Deploy this project to Netlify.',
     estimate: moment.duration(20, 'minutes'),
     status: 'Completed',
   },

@@ -5,6 +5,10 @@ interface DetailsProps {
   isOpen: boolean;
 }
 
+interface ButtonProps {
+  saveDelete: boolean;
+}
+
 export const TaskContainer = styled.button`
   width: 100%;
   border: 0;
@@ -46,9 +50,6 @@ export const Info = styled.div`
 
     svg {
       color: #e8bc28;
-    }
-    span {
-      /* margin-right: 100px; */
     }
   }
 
@@ -105,7 +106,7 @@ export const TaskBody = styled.div<DetailsProps>`
   transition: all 500ms;
   > * {
     &:first-child {
-      margin-top: 20px;
+      margin-top: 10px;
     }
   }
 
@@ -117,8 +118,35 @@ export const TaskBody = styled.div<DetailsProps>`
     width: 100%;
     height: ${props => (props.isOpen ? '' : '0px')};
 
+    input {
+      visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
+      transition: visibility 0.000001s;
+      border: 1px solid #000;
+      border-radius: 4px;
+      padding: 0px 10px;
+
+      &:hover,
+      &:focus {
+        border: 1px solid #e8bc28;
+      }
+    }
+
+    button {
+      visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
+      transition: visibility 0.000001s;
+    }
+
     textarea {
       height: 140px;
+      resize: none;
+      border: 1px solid #000;
+      border-radius: 4px;
+      padding: 5px 10px;
+
+      &:hover,
+      &:focus {
+        border: 1px solid #e8bc28;
+      }
     }
 
     div {
@@ -128,26 +156,51 @@ export const TaskBody = styled.div<DetailsProps>`
 
     span {
       text-align: left;
+      margin-top: 3px;
     }
-  }
-
-  input {
-    visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
-    transition: visibility 0.000001s;
-  }
-  button {
-    visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
-    transition: visibility 0.000001s;
   }
 `;
 
 export const TimePickerContainer = styled.div<DetailsProps>`
   display: flex;
   align-items: center;
-  height: 40px;
   width: 120px !important;
   visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
   transition: visibility 0.01s;
+
+  > div {
+    border-radius: 4px;
+    border: 1px solid #000 !important;
+
+    &:hover,
+    &:focus {
+      border: 1px solid #e8bc28 !important;
+      svg {
+        color: #e8bc28;
+      }
+    }
+
+    span {
+      margin-top: 0 !important;
+    }
+    input {
+      padding: 0 !important;
+      border: 0 !important;
+      &:hover {
+        border: 0;
+      }
+    }
+  }
+`;
+
+export const TimePickerFooter = styled.div`
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-left: 5px;
+    width: 50%;
+  }
 `;
 
 export const ButtonsContainer = styled.div`
@@ -163,9 +216,8 @@ export const DeleteButton = styled.button`
   align-items: center;
   justify-content: center;
   width: 45%;
-  height: 30px;
+  height: 40px;
   background: #d11a2a;
-  /* background: #d11a2a !important; */
   border-radius: 10px;
   border: 0;
   color: #fff;
@@ -182,9 +234,8 @@ export const SaveButton = styled.button`
   align-items: center;
   justify-content: center;
   width: 45%;
-  height: 30px;
+  height: 40px;
   background: #e8bc28;
-  /* background: #e8bc28 !important; */
   border-radius: 10px;
   border: 0;
   color: #fff;
@@ -193,5 +244,24 @@ export const SaveButton = styled.button`
 
   &:hover {
     background: ${shade(0.2, '#e8bc28')};
+  }
+`;
+
+export const BottomButton = styled.button<ButtonProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  height: 40px;
+  background: ${props => (props.saveDelete ? '#e8bc28' : '#D11A2A')};
+  border-radius: 10px;
+  border: 0;
+  color: #fff;
+  font-size: 14px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: ${props =>
+      props.saveDelete ? shade(0.2, '#e8bc28') : shade(0.2, '#D11A2A')};
   }
 `;

@@ -4,7 +4,6 @@ import { shade, lighten } from 'polished';
 export const Container = styled.div``;
 
 export const Header = styled.div`
-  /* background-color: #464887; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,8 +28,8 @@ export const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 210px;
-    height: 70px;
+    width: 160px;
+    height: 50px;
     background: #e8bc28;
     border-radius: 10px;
     border: 0;
