@@ -15,8 +15,6 @@ My task is to develop a Single Page Application using _Angular2+_ or _React_ tha
 
 ##### Note: _This is a single user application and it does not store data._
 
-<br>
-
 ## Live demo
 
 Live demo at [Link](https://priceless-mirzakhani-52566b.netlify.app/)
