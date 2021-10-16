@@ -53,6 +53,14 @@ _or_
 $ npm install
 ```
 
+### Running
+
+With all dependencies installed and the environment properly configured, you can now run the app:
+
+```
+$ yarn start
+```
+
 ## Built With
 
 - [Ant Design](https://ant.design/components/time-picker/) - Timepicker
