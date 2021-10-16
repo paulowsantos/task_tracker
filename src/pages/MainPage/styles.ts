@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { shade, lighten } from 'polished';
+import { lighten } from 'polished';
 
 export const Container = styled.div``;
 
@@ -25,23 +25,9 @@ export const Header = styled.div`
   }
 
   button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 160px;
-    height: 50px;
-    background: #e8bc28;
-    border-radius: 10px;
-    border: 0;
-    color: #fff;
     font-size: 18px;
     font-weight: 700;
     margin-right: 3%;
-    transition: background-color 0.2s;
-
-    &:hover {
-      background: ${shade(0.2, '#e8bc28')};
-    }
 
     svg {
       margin-right: 15px;

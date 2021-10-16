@@ -23,8 +23,8 @@ const initialTasks = [
   },
   {
     id: 2,
-    taskname: 'Back-end Serverless',
-    desc: 'Develop a serverless backend for the application with Create, Read, Update, and Delete functions.',
+    taskname: 'Serverless Back-end',
+    desc: 'Develop a serverless back-end for the application with Create, Read, Update, and Delete functions.',
     estimate: moment.duration(400, 'minutes'),
     status: 'In Progress',
   },
@@ -95,7 +95,14 @@ export const TasksProvider = ({ children }: TasksProviderProps) => {
   };
 
   return (
-    <TasksContext.Provider value={{ tasksList, updateTask, addTask, delTask }}>
+    <TasksContext.Provider
+      value={{
+        tasksList,
+        updateTask,
+        addTask,
+        delTask,
+      }}
+    >
       {children}
     </TasksContext.Provider>
   );

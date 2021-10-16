@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import GlobalStyles from './styles/global';
-import { TasksProvider } from './TasksContext';
-import { PopupProvider } from './PopupContext';
+import { TasksProvider } from './utils/TasksContext';
+import { PopupProvider } from './utils/PopupContext';
 import Routes from './routes';
 
 const App: React.FC = () => {

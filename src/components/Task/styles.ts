@@ -1,12 +1,7 @@
 import styled from 'styled-components';
-import { shade } from 'polished';
 
 interface DetailsProps {
   isOpen: boolean;
-}
-
-interface ButtonProps {
-  saveDelete: boolean;
 }
 
 export const TaskContainer = styled.button`
@@ -17,7 +12,6 @@ export const TaskContainer = styled.button`
   padding: 8px;
   text-decoration: none;
   transition: transform 0.2s;
-  /* display: inline-block; */
 
   & + button {
     margin-top: 10px;
@@ -170,21 +164,21 @@ export const TimePickerContainer = styled.div<DetailsProps>`
 
   > div {
     border-radius: 4px;
-    border: 1px solid #000 !important;
+    border: 1px solid #000;
 
     &:hover,
     &:focus {
-      border: 1px solid #e8bc28 !important;
+      border: 1px solid #e8bc28;
       svg {
         color: #e8bc28;
       }
     }
 
     span {
-      margin-top: 0 !important;
+      margin-top: 0;
     }
     input {
-      padding: 0 !important;
+      padding: 0;
       border: 0 !important;
       &:hover {
         border: 0;
@@ -209,59 +203,4 @@ export const ButtonsContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 10px 0px 0px 0px !important;
-`;
-
-export const DeleteButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45%;
-  height: 40px;
-  background: #d11a2a;
-  border-radius: 10px;
-  border: 0;
-  color: #fff;
-  font-size: 14px;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background: ${shade(0.2, '#D11A2A')};
-  }
-`;
-
-export const SaveButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45%;
-  height: 40px;
-  background: #e8bc28;
-  border-radius: 10px;
-  border: 0;
-  color: #fff;
-  font-size: 14px;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background: ${shade(0.2, '#e8bc28')};
-  }
-`;
-
-export const BottomButton = styled.button<ButtonProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45%;
-  height: 40px;
-  background: ${props => (props.saveDelete ? '#e8bc28' : '#D11A2A')};
-  border-radius: 10px;
-  border: 0;
-  color: #fff;
-  font-size: 14px;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background: ${props =>
-      props.saveDelete ? shade(0.2, '#e8bc28') : shade(0.2, '#D11A2A')};
-  }
 `;

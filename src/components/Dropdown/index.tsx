@@ -23,7 +23,11 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <Container listOpen={listOpen}>
-      <Header type="button" onClick={() => setListOpen(!listOpen)}>
+      <Header
+        type="button"
+        onClick={() => setListOpen(!listOpen)}
+        listOpen={listOpen}
+      >
         <div>{title}</div>
         {listOpen ? (
           <MdKeyboardArrowUp size={20} />

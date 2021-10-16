@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { shade } from 'polished';
 
 interface ContainerProps {
   isOpen: boolean;
@@ -41,23 +40,5 @@ export const ModalContainer = styled.div<ContainerProps>`
     align-items: center;
     justify-content: space-between;
     margin: 5% 0px 0px 0px !important;
-
-    button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 45%;
-      height: 30px;
-      background: #999;
-      border-radius: 10px;
-      border: 0;
-      color: #fff;
-      font-size: 14px;
-      transition: background-color 0.2s;
-
-      &:hover {
-        background: ${shade(0.2, '#999')};
-      }
-    }
   }
 `;

@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 
 import { ModalBackground, ModalContainer } from './styles';
-import { TasksContext } from '../../TasksContext';
-import { PopupContext } from '../../PopupContext';
+import { TasksContext } from '../../utils/TasksContext';
+import { PopupContext } from '../../utils/PopupContext';
+import Button from '../Button';
 
 const Popup: React.FC = () => {
   const { delTask } = useContext(TasksContext);
@@ -16,15 +17,25 @@ const Popup: React.FC = () => {
   return (
     <ModalBackground isOpen={popupstats}>
       <ModalContainer isOpen={popupstats}>
-        <p>Are you sure you want to delete the following Task:</p>
+        <p>Are you sure you want to delete the following Task?</p>
         <p> - {name}</p>
         <div>
-          <button type="button" onClick={() => setPopupStatus(false)}>
+          <Button
+            width="45%"
+            height="30px"
+            background="#999"
+            onClick={() => setPopupStatus(false)}
+          >
             Cancel
-          </button>
-          <button type="button" onClick={handleDeleteTask}>
-            Confirm
-          </button>
+          </Button>
+          <Button
+            width="45%"
+            height="30px"
+            background="#D11A2A"
+            onClick={handleDeleteTask}
+          >
+            Delete
+          </Button>
         </div>
       </ModalContainer>
     </ModalBackground>

@@ -42,7 +42,7 @@ export const Container = styled.button<ContainerProps>`
     props.listOpen &&
     css`
       button {
-        opacity: 1 !important;
+        opacity: 1;
       }
       ul {
         transform: scale(1);
@@ -63,17 +63,21 @@ export const Container = styled.button<ContainerProps>`
     `}
 `;
 
-export const Header = styled.button`
+export const Header = styled.button<ContainerProps>`
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #000;
+  border: 1px solid ${props => (props.listOpen ? '#e8bc28' : '#000')};
   border-radius: 5px;
   font-size: 16px;
   padding: 1px 10px;
   background: #fff;
   outline: none;
+
+  &:hover {
+    border: 1px solid #e8bc28;
+  }
 
   div {
     font-size: 16px;

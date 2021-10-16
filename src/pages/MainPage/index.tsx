@@ -2,10 +2,11 @@ import React, { useMemo, useContext } from 'react';
 import { BsPlusCircle } from 'react-icons/bs';
 import moment from 'moment';
 
-import { TasksContext } from '../../TasksContext';
-import { PopupContext } from '../../PopupContext';
+import { TasksContext } from '../../utils/TasksContext';
+import { PopupContext } from '../../utils/PopupContext';
 import Task from '../../components/Task';
 import Popup from '../../components/Popup';
+import Button from '../../components/Button';
 import logoImg from '../../assets/logo.png';
 
 import {
@@ -87,10 +88,15 @@ const MainPage: React.FC = () => {
           <img src={logoImg} alt="Tracker" />
           <Title>Task Tracker</Title>
         </div>
-        <button type="button" onClick={handleAddTask}>
+        <Button
+          width="160px"
+          height="50px"
+          background="#e8bc28"
+          onClick={handleAddTask}
+        >
           <BsPlusCircle size={25} />
           Add Task
-        </button>
+        </Button>
       </Header>
       <States>
         <State>

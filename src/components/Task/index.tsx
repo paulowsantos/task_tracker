@@ -4,9 +4,10 @@ import 'antd/dist/antd.css';
 import { TimePicker } from 'antd';
 import moment from 'moment';
 
-import { TasksContext } from '../../TasksContext';
-import { PopupContext } from '../../PopupContext';
+import { TasksContext } from '../../utils/TasksContext';
+import { PopupContext } from '../../utils/PopupContext';
 import Dropdown from '../Dropdown';
+import Button from '../Button';
 
 import {
   TaskContainer,
@@ -17,10 +18,9 @@ import {
   TimePickerContainer,
   TimePickerFooter,
   ButtonsContainer,
-  BottomButton,
 } from './styles';
 
-import { TaskProps } from '../../types';
+import { TaskProps } from '../../utils/types';
 
 interface ITaskProps {
   statusList: string[];
@@ -57,6 +57,8 @@ const Task: React.FC<ITaskProps> = ({ statusList, data }) => {
       estimate: selectedTime,
       status: selectedStatus,
     });
+
+    setDetailsState(false);
   };
 
   const handleDeleteTask = () => {
@@ -116,7 +118,7 @@ const Task: React.FC<ITaskProps> = ({ statusList, data }) => {
               allowClear={false}
               value={moment.utc(moment.duration(selectedTime).asMilliseconds())}
               format="HH:mm"
-              onChange={t => {
+              onSelect={t => {
                 setSelectedTime(
                   moment.duration(moment(t).format('HH:mm'), 'minutes'),
                 );
@@ -132,16 +134,22 @@ const Task: React.FC<ITaskProps> = ({ statusList, data }) => {
           />
         </div>
         <ButtonsContainer>
-          <BottomButton
-            saveDelete={false}
-            type="button"
+          <Button
+            width="45%"
+            height="40px"
+            background="#D11A2A"
             onClick={handleDeleteTask}
           >
             Delete Task
-          </BottomButton>
-          <BottomButton saveDelete type="button" onClick={handleSaveTask}>
+          </Button>
+          <Button
+            width="45%"
+            height="40px"
+            background="#e8bc28"
+            onClick={handleSaveTask}
+          >
             Save Task
-          </BottomButton>
+          </Button>
         </ButtonsContainer>
       </TaskBody>
     </TaskContainer>
