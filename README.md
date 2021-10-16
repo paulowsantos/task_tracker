@@ -4,7 +4,7 @@
 
 This repository houses my interview project for **Vitruvi**.
 
-My task is to develop a Single Page Application using _Angular2+_ or _React_ that keep track of tasks with the following requirements:
+My task is to develop a Single Page Application using _Angular2+_ or _React_ that keeps track of tasks with the following requirements:
 
 - Present visually a list of tasks in three different states: Planned, In Progress, and Completed.
 - Each task contains: name, description, estimate duration, and state.
@@ -14,10 +14,6 @@ My task is to develop a Single Page Application using _Angular2+_ or _React_ tha
 <br>
 
 ##### Note: _This is a single user application and it does not store data._
-
-<br>
-
-**Please enjoy!**
 
 <br>
 
